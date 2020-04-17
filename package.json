@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "native-base": "^2.13.12",
     "react": "16.11.0",
     "react-dom": "16.13.0",
     "react-native": "0.62.2"

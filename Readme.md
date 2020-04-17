@@ -1,11 +1,11 @@
-This project is a step by step example how to start `react-native` project using Clojurescript, `shadow-cljs` and r`eagent` libraries. It aslo uses `native-base` as react-native component library. 
+This project is a step by step example how to start `react-native` project using Clojurescript, `shadow-cljs` and r`eagent` libraries. It also uses `native-base` as react-native component library. 
 
 # Setup Instructions
 
 ## Step 0 - Install prerequisites
 Have installed `nodejs`, `npm` and `yarn`.
 
-## Step 1 - Create a barebone react-native project
+## Step 1 - Create a bare bone react-native project
 ```
 npx react-native init RnNativeBaseExampleTodo
 ```
@@ -37,7 +37,7 @@ Create file `shadow-cljs.edn` with the following content:
                         ;:preloads   [re-frisk-rn.preload]
                         }}}}
 ```
-This is the basic shadow-cljs configuration which refers to `dep.edn` file for managing dependencies. It is also possible to configure shadow-cljs as a standalone config, or to use Leiningen `project.clj` instead of `deps.end`. Both aproaches are documented in shadow-cljs documentatino and are left as an exercise for the reader.
+This is the basic shadow-cljs configuration which refers to `dep.edn` file for managing dependencies. It is also possible to configure shadow-cljs as a standalone config, or to use Leiningen `project.clj` instead of `deps.end`. Both approaches are documented in shadow-cljs documentation and are left as an exercise for the reader.
 
 Also create a clojure tools configuration `deps.edn`
 ```Clojure
@@ -87,13 +87,14 @@ Once the application is started, you should disable react-native reloading featu
 ## Step 6 - happy coding
 That's it. You can now continue on your own coding react-native application in Clojurescript.
 
-You may also want to take a look at this repo for a samle application that use `native-base` library.
+You may also want to take a look at this repo for a sample application that use `native-base` library.
 
 ## Step 6 - Add `native-base`
-In order to use any react-native library, it needs to be added by your favorite node package manager. Use either npm or yarn.
+In order to use any react-native library, it needs to be added by your favourite node package manager. Use either  `npm` or `yarn`.
 ```
 yarn add native-base
 ```
+or
 ```
 npm install --save native-base
 ```
@@ -106,4 +107,4 @@ After adding, it's required to restart react-native and rebuild and restart appl
 
 # Credits
 
-Heavy lifting is done using the excelent `rn-shadow-steroid` library. Take a look at it for more documentation.
+Heavy lifting is done using the excellent `rn-shadow-steroid` library. Take a look at it for more documentation.

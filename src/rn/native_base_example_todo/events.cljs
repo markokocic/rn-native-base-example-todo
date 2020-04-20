@@ -15,7 +15,9 @@
 (rf/reg-event-db
   :todos/add
   (fn [db [_ val]]
-    (update-in db [:todos] #(conj (:todos db) {:text val :key (js/Date.now) :checked false}))))
+    (if (= "" val)
+      db
+      (update-in db [:todos] #(conj (:todos db) {:text val :key (js/Date.now) :checked false})))))
 
 (rf/reg-event-db
   :todos/check

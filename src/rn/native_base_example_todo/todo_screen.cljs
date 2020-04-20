@@ -9,16 +9,16 @@
   [nb/list-item {:key key}
    [nb/check-box {:checked  checked
                   :on-press #(rf/dispatch [:todos/check key])}]
-   [nb/body
+   [nb/body {:style {:flex 1}}
     [nb/text {:style {:font-size 17 :font-weight :bold :text-decoration-line (if checked :line-through :none)}}
      (str text)]]
-   [nb/icon {:name     "trash" :style {:font-size 30 :color :red}
-             :on-press #(rf/dispatch [:todos/delete key])}]])
+   [rn/touchable-opacity {:on-press #(rf/dispatch [:todos/delete key])}
+    [nb/icon {:name "trash" :style {:font-size 30 :color :red}}]]])
 
 (defn- todos []
   (let [todos (rf/subscribe [:todos/all])]
-    [nb/list
-     (map todo-item @todos)]))
+    [nb/container
+     [rn/flat-list {:data @todos :render-fn todo-item}]]))
 
 (defn- input-container []
   (let [value (r/atom "")]
@@ -28,10 +28,9 @@
                   :placeholder    "What do you want to do today?" :placeholder-text-color "#abbabb"
                   :value          @value
                   :on-change-text (fn [v] (reset! value v) (r/flush))}]
-       [nb/icon {:name     "add" :type "MaterialIcons"
-                 :style    {:font-size 30 :color :blue}
-                 :on-press (fn [] (rf/dispatch [:todos/add @value]) (reset! value ""))}]
-       ])))
+       [rn/touchable-opacity {:on-press (fn [] (rf/dispatch [:todos/add @value]) (reset! value ""))}
+        [nb/icon {:name  :add :type "MaterialIcons"
+                  :style {:font-size 30 :color :blue}}]]])))
 
 (defn screen []
   [nb/container
@@ -39,6 +38,6 @@
     [nb/left]
     [nb/body
      [nb/h1 {:style {:color :red}} "Todo List"]]]
-   [nb/content
+   [nb/view {:style {:flex 1}}
     [input-container]
     [todos]]])

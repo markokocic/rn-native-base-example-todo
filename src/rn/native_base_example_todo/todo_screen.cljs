@@ -3,9 +3,7 @@
             [re-frame.core :as rf]
             [reagent.core :as r]
             [rn.native-base.core :as nb]
-            [rn.native-base.easy-grid :as eg]
-            rn.native-base-example-todo.events
-            rn.native-base-example-todo.subs))
+            [rn.native-base.easy-grid :as eg]))
 
 (defn- todo-item [{:keys [key text checked]}]
   [nb/list-item {:key key}

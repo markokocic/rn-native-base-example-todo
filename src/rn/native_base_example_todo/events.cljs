@@ -9,7 +9,7 @@
      (list
        {:text "Sample checked" :key 1 :checked true}
        {:text "Sample unchecked" :key 2 :checked false}
-       {:text "Sample long text that will overflow at one point and be long more that on line" :key 3 :checked false})
+       {:text "Sample long text that will overflow at one point and be long more that one line that can or can not be so longs as it is possible" :key 3 :checked false})
      }))
 
 (rf/reg-event-db

@@ -1,4 +1,4 @@
-This project is a step by step example how to start `react-native` project using Clojurescript, `shadow-cljs` and r`eagent` libraries. It also uses `native-base` as react-native component library. 
+This project is a step by step example how to start `react-native` project using Clojurescript, `shadow-cljs` and `reagent` libraries. It also uses `native-base` as react-native component library, wrapped to Clojurescript using `rn-native-base` Clojurescript library. 
 
 # Setup Instructions
 
@@ -43,8 +43,9 @@ Also create a clojure tools configuration `deps.edn`
 ```Clojure
 {:deps  {org.clojure/clojure       {:mvn/version "1.10.1"}
          org.clojure/clojurescript {:mvn/version "1.10.520"}
-         thheller/shadow-cljs      {:mvn/version "2.8.96"}
+         thheller/shadow-cljs      {:mvn/version "2.8.98"}
          rn-shadow-steroid         {:mvn/version "0.1.1"}
+         rn-native-base            {:mvn/version "0.1.1"}
          reagent                   {:mvn/version "0.10.0" :exclusions [cljsjs/react cljsjs/react-dom]}
          re-frame                  {:mvn/version "0.12.0"}
          ;re-frisk-rn               {:mvn/version "0.1.1"}
@@ -102,6 +103,9 @@ It also needs to be linked to the react-native
 ```
 npx react-native link
 ```
+
+Add the latest `rn-native-base` as a dependency to your project.
+
 After adding, it's required to restart react-native and rebuild and restart application.
 
 

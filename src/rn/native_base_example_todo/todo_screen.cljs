@@ -17,8 +17,7 @@
 
 (defn- todos []
   (let [todos (rf/subscribe [:todos/all])]
-    [nb/container
-     [rn/flat-list {:data @todos :render-fn todo-item}]]))
+    [rn/flat-list {:data @todos :render-fn todo-item}]))
 
 (defn- input-container []
   (let [value (r/atom "")]
@@ -38,6 +37,6 @@
     [nb/left]
     [nb/body
      [nb/h1 {:style {:color :red}} "Todo List"]]]
-   [nb/view {:style {:flex 1}}
+   [nb/view
     [input-container]
     [todos]]])

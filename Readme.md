@@ -99,10 +99,14 @@ or
 ```
 npm install --save native-base
 ```
-It also needs to be linked to the react-native
+If you are using older version of the `react-native` it also needs to be linked to the react-native
 ```
-npx react-native link
+npx react-native link native-base
 ```
+This linking step is not required when using `react-native` version of `0.60` or newer.
+
+### Note on native dependencies
+After adding any native dependency you need to re-run the application by running `npx react-native run-android`. If you still have issues, you need to manualy delete android build files located in `./android/app/build*`, uninstall the application from your device, and re-run `npx react-native run-android` to fully rebuild the appliacation.
 
 Add the latest `rn-native-base` as a dependency to your project.
 
@@ -111,4 +115,4 @@ After adding, it's required to restart react-native and rebuild and restart appl
 
 # Credits
 
-Heavy lifting is done using the excellent `rn-shadow-steroid` library. Take a look at it for more documentation.
+Heavy lifting is done using the excellent [`flexsurfer/rn-shadow-steroid`](/flexsurfer/rn-shadow-steroid) library. Take a look at it for more documentation.

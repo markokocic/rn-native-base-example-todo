@@ -27,15 +27,16 @@ Create a new file in `src/rn/native_base_example_todo/core.cljs` with the follow
 ## Step 3 - Add shadow-cljs config file
 Create file `shadow-cljs.edn` with the following content:
 ```Clojure
-{:deps   true
- :builds {:dev
-          {:target     :react-native
-           :init-fn    rn.native-base-example-todo.core/init
-           :output-dir "app"
-           :devtools   {:autoload   true
-                        :after-load steroid.rn.core/reload
-                        ;:preloads   [re-frisk-rn.preload]
-                        }}}}
+{:deps  true
+ :nrepl {:port 7002}
+ :builds
+        {:app {:target     :react-native
+               :init-fn    rn.native-base-example-todo.core/init
+               :output-dir "app"
+               :devtools   {:autoload   true
+                            :after-load steroid.rn.core/reload
+                            :preloads   [re-frisk-rn.preload]
+                            }}}}
 ```
 This is the basic shadow-cljs configuration which refers to `dep.edn` file for managing dependencies. It is also possible to configure shadow-cljs as a standalone config, or to use Leiningen `project.clj` instead of `deps.end`. Both approaches are documented in shadow-cljs documentation and are left as an exercise for the reader.
 
@@ -43,7 +44,7 @@ Also create a clojure tools configuration `deps.edn`
 ```Clojure
 {:deps  {org.clojure/clojure       {:mvn/version "1.10.1"}
          org.clojure/clojurescript {:mvn/version "1.10.520"}
-         thheller/shadow-cljs      {:mvn/version "2.8.98"}
+         thheller/shadow-cljs      {:mvn/version "2.9.1"}
          rn-shadow-steroid         {:mvn/version "0.1.1"}
          rn-native-base            {:mvn/version "0.1.1"}
          reagent                   {:mvn/version "0.10.0" :exclusions [cljsjs/react cljsjs/react-dom]}
@@ -69,7 +70,7 @@ rm -f App.js
 ### Build Clojurescript source
 Run the following command in the console:
 ```
-npx shadow-cljs watch dev
+npx shadow-cljs watch app
 ```
 This can take a while, but needs to be done only once. After that, it will quickly re-compile source on every change.
 
@@ -104,6 +105,8 @@ If you are using older version of the `react-native` it also needs to be linked 
 npx react-native link native-base
 ```
 This linking step is not required when using `react-native` version of `0.60` or newer.
+
+Note: If you plan to use `Icon`s you need to set up `react-native-vector-icons` as described on its [home page](https://github.com/oblador/react-native-vector-icons).
 
 ### Note on native dependencies
 After adding any native dependency you need to re-run the application by running `npx react-native run-android`. If you still have issues, you need to manualy delete android build files located in `./android/app/build*`, uninstall the application from your device, and re-run `npx react-native run-android` to fully rebuild the appliacation.

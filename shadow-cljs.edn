@@ -1,9 +1,10 @@
-{:deps   true
- :builds {:dev
-          {:target     :react-native
-           :init-fn    rn.native-base-example-todo.core/init
-           :output-dir "app"
-           :devtools   {:autoload   true
-                        :after-load steroid.rn.core/reload
-                        ;:preloads   [re-frisk-rn.preload]
-                        }}}}
+{:deps  true
+ :nrepl {:port 7002}
+ :builds
+        {:app {:target     :react-native
+               :init-fn    rn.native-base-example-todo.core/init
+               :output-dir "app"
+               :devtools   {:autoload   true
+                            :after-load steroid.rn.core/reload
+                            :preloads   [re-frisk-rn.preload]
+                            }}}}

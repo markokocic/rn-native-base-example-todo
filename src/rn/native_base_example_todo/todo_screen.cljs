@@ -13,7 +13,10 @@
     [nb/text {:style {:font-size 17 :font-weight :bold :text-decoration-line (if checked :line-through :none)}}
      (str text)]]
    [rn/touchable-opacity {:on-press #(rf/dispatch [:todos/delete key])}
-    [nb/icon {:name "trash" :style {:font-size 30 :color :red}}]]])
+    [nb/icon {:name "trash" :style {:font-size 30 :color :red}}]]
+   ;[nb/button {:transparent true :title "Testdd"}
+   ; [nb/icon {:name "trash" :style {:font-size 30 :color :red}}]]
+   ])
 
 (defn- todos []
   (let [todos (rf/subscribe [:todos/all])]

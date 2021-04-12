@@ -118,4 +118,4 @@ After adding, it's required to restart react-native and rebuild and restart appl
 
 # Credits
 
-Heavy lifting is done using the excellent [`flexsurfer/rn-shadow-steroid`](/flexsurfer/rn-shadow-steroid) library. Take a look at it for more documentation.
+Heavy lifting is done using the excellent [/flexsurfer/rn-shadow-steroid](/flexsurfer/rn-shadow-steroid) library. Take a look at it for more documentation.
